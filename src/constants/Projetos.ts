@@ -20,12 +20,18 @@ export default [
         id: "soft-skills",
         link: "https://info-soft-skills.netlify.app/",
         nome: "soft skills",
-        tags: ["vue", "css", "typescript", "html", "javascript"]
+        tags: ["vue", "sass", "typescript", "css", "html", "javascript"]
 
     },
     {
         descricao: `
+        Aplicativo simples de lista de tarefas, o site foi desenvolvido como um desafio pessoal para descobrir quanto tempo eu levaria para criar um projeto simples, com a conclusão ocorrendo em dois dias.
 
+        As funcionalidades principais foram implementadas no primeiro dia. No segundo dia, fiz correções e refinamentos. Após esses dois dias iniciais, o desenvolvimento continuou por mais alguns dias, focando em ajustes menores.
+        
+        Entre as funcionalidades, o usuário pode criar, editar e remover tarefas, além de marcar tarefas como concluídas. O sistema possui duas seções que organizam as tarefas: uma para as tarefas concluídas e outra para as não concluídas.
+        
+        Todas as tarefas são armazenadas localmente no navegador, e o projeto inclui algumas configurações extras que decidi adicionar nos primeiros dias. Estas incluem a possibilidade de escolher um tema de cores e suporte a diferentes idiomas, como inglês e coreano. As traduções foram feitas com o auxílio do Google Tradutor, uma vez que não possuo um nível avançado nessas línguas.
         `,
         github: "https://github.com/Joao-Lucas-Si/todo-list",
         id: "todo-list",
