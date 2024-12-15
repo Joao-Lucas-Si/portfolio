@@ -18,10 +18,10 @@ const { descricao, github, id, link, nome, foto, tags } = Astro.props as Projeto
 <Layout>
     <Menu />
     <div class="mt-8">
-        <div class="relative w-[80%] h-[60vh] m-auto">
+        <div class="relative w-[95%] md:w-[80%] h-[30vh] md:h-[60vh] m-auto">
             <Image alt={`imagem de exemplo do projeto: ${nome}`} src={foto!} class="w-[100%] h-[100%] border-purple-500 border-4 rounded-md overflow-hidden" />
-            <Contanto link={github} style="absolute inline left-[1%] bottom-[1%]" nome="github" svg={ContantoSvg.github} />
-            <Contanto link={link} style="absolute inline left-[7%] bottom-[1%]" nome="site" svg={ContantoSvg.site} />
+            <Contanto link={github} style="absolute inline left-[10px] bottom-[2%]" nome="github" svg={ContantoSvg.github} />
+            <Contanto link={link} style="absolute inline left-[70px] bottom-[2%]" nome="site" svg={ContantoSvg.site} />
        
         </div>
         <!-- <Image src={foto} /> -->

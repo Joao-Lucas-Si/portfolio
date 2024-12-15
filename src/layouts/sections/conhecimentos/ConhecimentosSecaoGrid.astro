@@ -12,7 +12,7 @@ import conhecimentos from "../../../constants/conhecimentos";
         <div class="lg:w-[60%] w-[100%] min-h-[60vh]">
             <div class="info atual">
                 <div class="flex justify-center items-center">
-                    <h3 class="text-gray-300 text-3xl">Selecione uma tecnologia</h3>
+                    <h3 class="text-gray-300 text-center text-3xl">Selecione uma tecnologia</h3>
                 </div>
             </div>
             {
@@ -67,7 +67,7 @@ import conhecimentos from "../../../constants/conhecimentos";
             }
         </div>
         <div
-            class={`grid md:w-[40%] w-[100%] gap-3 grid-rows-[repeat(7,calc(60vh_/_7))] grid-cols-5 min-h-[60vh] h-[100%]`}
+            class={`grid md:w-[40%] w-[100%] gap-3 md:grid-rows-[repeat(7,calc(60vh_/_7))] grid-rows-[repeat(7,calc(50vh_/_7))] grid-cols-5 min-h-[50vh] md:min-h-[60vh] h-[100%]`}
         >
             {
                 conhecimentos.map((conhecimento) => (

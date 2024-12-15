@@ -10,8 +10,8 @@ const { descricao, github, id, link, nome, tags, foto } = Astro.props
 
 ---
 
-<div data-projeto={nome} data-tags={tags.join(",")} class="projeto border-white hover:border-purple-500  hover:drop-shadow-[0_0_15px_purple] border-2 rounded-md overflow-hidden gap-2 h-72 justify-between relative transition-all hover:grayscale-0 grayscale  flex flex-col">
-    <!-- <Image /> -->
+<div data-projeto={nome} data-tags={tags.join(",")} class="projeto border-white hover:border-purple-500  hover:drop-shadow-[0_0_15px_purple] border-2 rounded-md overflow-hidden gap-2 h-56 md:h-72 justify-between relative transition-all hover:grayscale-0 grayscale  flex flex-col">
+    <!-- <Image /> --> 
    
         {foto && <Image  alt=`Imagem do projeto "${nome}"` src={foto} class="h-[100%] w-[100%] "/>}
         <div class="absolute left-4 bottom-4">

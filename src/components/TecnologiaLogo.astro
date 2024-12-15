@@ -12,7 +12,7 @@ const { cor, nome, svg, position, viewBox = "0 0 384 512", isSecundary } = Astro
 ---
 
 <svg
-    class={`${position} absolute ${cor == "vermelho" ? "stroke-red-500 drop-shadow-[0_0_10px_red]" : cor =="verde" ? "stroke-green-500 drop-shadow-[0_0_10px_green]" : cor == "laranja" ? "stroke-orange-500 drop-shadow-[0_0_10px_orange]" : cor == "azul" ? "stroke-blue-500 drop-shadow-[0_0_10px_blue]" : "stroke-yellow-500 drop-shadow-[0_0_10px_yellow]"}  stroke-[10] ${isSecundary ? "w-[4rem] h-[4rem] lg:block hidden" : "w-[8rem] h-[8rem]" } fill-transparent`}
+    class={`${position} absolute ${cor == "vermelho" ? "stroke-red-500 drop-shadow-[0_0_10px_red]" : cor =="verde" ? "stroke-green-500 drop-shadow-[0_0_10px_green]" : cor == "laranja" ? "stroke-orange-500 drop-shadow-[0_0_10px_orange]" : cor == "azul" ? "stroke-blue-500 drop-shadow-[0_0_10px_blue]" : "stroke-yellow-500 drop-shadow-[0_0_10px_yellow]"}  stroke-[10] ${isSecundary ? "w-[4rem] h-[4rem] lg:block hidden" : "md:w-[8rem] w-[6rem] md:h-[8rem] h-[6rem]" } fill-transparent`}
     xmlns="http://www.w3.org/2000/svg"
     viewBox={viewBox}
 >

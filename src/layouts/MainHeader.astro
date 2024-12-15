@@ -103,14 +103,14 @@ import Image from "astro/components/Image.astro";
             <path style="filter: drop-shadow(0 0 15px yellow);" stroke="yellow" stroke-width="10px" d=""/></svg>  -->
     </div>
     <div
-        class="absolute flex w-[80%] items-center justify-between left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]"
+        class="absolute flex w-[80%] flex-col-reverse md:flex-row items-center justify-between left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]"
     >
-        <div class="flex-column-centro" id="index_header__text">
+        <div class="flex-column-centro text-center md:text-left" id="index_header__text">
             <h2 class="text-4xl font-bold text-purple-500">
                 João Lucas Silva Lopes
             </h2>
             <p class="text-3xl text-gray-400">Desenvolvedor</p>
-            <div id="index_header__links" class="flex">
+            <div id="index_header__links" class="flex justify-center md:justify-normal">
                 <Contanto
                     temAnimacao
                     nome="github"
@@ -131,7 +131,7 @@ import Image from "astro/components/Image.astro";
                 />
             </div>
         </div>
-        <div id="index_header__imagem" class="lg:w-[50%] w-[100%]">
+        <div id="index_header__imagem" class="md:w-[50%] w-[90%]">
             <Image class="" src={ProgramadorImagem} alt="" id="dev_imagem" />
         </div>
     </div>
