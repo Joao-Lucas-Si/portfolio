@@ -1,0 +1,15 @@
+---
+interface Props {
+    itens: { conteudo: string, link: string }[],
+    titulo: string
+}
+
+const { itens, titulo } = Astro.props
+---
+
+<div>
+    <h5 class="text-purple-500 text-xl font-bold">{titulo}</h5>
+    <ul>
+        {itens.map(item => <li class="text-white"><a href={item.link}>{item.conteudo}</a></li>)}
+    </ul>
+</div>

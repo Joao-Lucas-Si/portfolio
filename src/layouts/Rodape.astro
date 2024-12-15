@@ -1,0 +1,21 @@
+---
+import Projetos from "../constants/Projetos";
+import RodapeTopico from "./RodapeTopico.astro";
+
+
+
+
+---
+
+<footer class="bg-gray-700 mt-12">
+    <div class="bg-purple-500 p-4 text-white text-xl font-bold">
+        <h4 >@Desenvolvido por: João Lucas Silva Lopes</h4>
+    </div>
+    <div class="justify-around flex p-1">
+        <RodapeTopico titulo="contanto" itens={[ { conteudo: "github", link: "" },
+            {conteudo: "linkedin", link: ""},
+            { conteudo: "email", link: "" }
+         ]} />
+        <RodapeTopico titulo="projetos" itens={Projetos.map(projeto => ({ conteudo: projeto.nome, link: projeto.link }))} />
+    </div>
+</footer>

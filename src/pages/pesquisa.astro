@@ -1,0 +1,63 @@
+<!-- ---
+import ProjetoCard from "../components/ProjetoCard.astro";
+import Projetos from "../constants/Projetos";
+import Layout from "../layouts/Layout.astro";
+
+---
+<Layout>
+<ul class="tags-usadas flex gap-2 p-2 overflow-auto flex-shrink-0">
+
+</ul>
+<ul class=" tags flex gap-2 p-2 overflow-auto flex-shrink-0">
+    {Projetos.flatMap(projeto => projeto.tags).reduce((tags, atual) => {
+        const tag = tags.find(tag => tag.tag == atual)
+        if (tag) {
+            tag.quantidade++
+        }
+        else {
+            tags.push({ tag: atual, quantidade: 1 })
+        }
+        return tags
+    }, [] as { tag: string, quantidade: number }[]).map(tag => <li data-tag={tag.tag} class= "tag bg-purple-500 flex-shrink-0 overflow-hidden rounded-md text-white"><span class="py-2 pl-4">{tag.tag}<span class="bg-purple-800 py-2 px-4 ml-2 text-center ">{tag.quantidade}</span></span></li>)}
+</ul>
+
+<div class="projetos grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-2 p-2">
+    {Projetos.map(projeto => <ProjetoCard {...projeto} />)}
+</div>
+
+</Layout>
+<script>
+import { createCollectionToGlobResultMap } from "astro/content/runtime";
+
+
+    const params =  new URLSearchParams(window.location.search);
+
+    const consulta = params.get("q") ?? ""
+    const tags = params.get("tags")?.split(",") ?? []
+
+    let elementosTags = [...document.querySelectorAll<HTMLLIElement>(".tags > .tag")]
+
+    const usados = document.querySelector(".tags-usadas")!
+    tags.forEach(tag => {
+        const elemento = elementosTags.find(elemento => elemento.dataset.tag == tag)
+        if (elemento) {
+            usados.append(elemento)
+            elementosTags = elementosTags.filter(e => elemento != e)
+        }
+    })
+
+    const projetoContainer = document.querySelector(".projetos")!
+
+    const projetos = [...document.querySelectorAll<HTMLDivElement>(".projeto")]
+
+    projetoContainer.innerHTML = ""
+
+    projetoContainer.append(...projetos.filter(projeto => (projeto.dataset.projeto?.includes(consulta) ?? true) && tags.every(tag => projeto.dataset.tags?.split(",").includes(tag) )))
+
+    elementosTags.forEach(tag => {
+        tag.addEventListener("click", () => {
+            const params = [consulta, ...tags, tag.dataset.tag].filter(param => param != null)
+            open(`/pesquisa?tags=${[...tags, tag.dataset.tag].join(",")}`, "_self")
+        })
+    })
+</script> -->

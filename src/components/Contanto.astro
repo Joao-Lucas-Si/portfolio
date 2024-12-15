@@ -1,0 +1,43 @@
+---
+
+interface Props {
+    svg: string,
+    link: string,
+    nome: string,
+    style?: string,
+    temAnimacao?: boolean
+}
+
+const { link, nome, svg , style, temAnimacao} = Astro.props
+
+---
+
+<a title={nome} target="_blank" class={`${temAnimacao ? "relative flutuante" :"" } ${style ?? ""}`} href={link}>
+    <svg class="stroke-purple-500 stroke-[10] w-[50px] h-[50px] drop-shadow-[0_0_15px_purple]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+        <path d={svg} />
+    </svg>
+</a>
+
+<style>
+@keyframes flutuar {
+    0% {
+        top: 0px;
+    }
+
+    30% {
+        top: 5px
+    }
+
+    60% {
+        top: -5px
+    }
+
+    100% {
+        top: 0px;
+    }
+}
+
+.flutuante {
+    animation: flutuar 2s infinite linear;
+}
+</style>

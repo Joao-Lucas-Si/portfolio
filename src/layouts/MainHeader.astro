@@ -1,0 +1,138 @@
+---
+import Contanto from "../components/Contanto.astro";
+import TecnologiaLogo from "../components/TecnologiaLogo.astro";
+import ContantoSvg from "../constants/ContantoSvg";
+import ProgramadorImagem from "../assets/images/undraw_programming_re_kg9v.svg";
+import TecnologiasSvg from "../constants/TecnologiasSvg";
+import Image from "astro/components/Image.astro";
+---
+
+<header class="relative h-[90vh]" id="index_header">
+    <div id="index_header__fundo">
+        <TecnologiaLogo
+            position="left-[1%] top-[1%]"
+            cor="laranja"
+            nome="html"
+            svg={TecnologiasSvg.html}
+        />
+        <TecnologiaLogo
+            position="left-[1%] top-[50%] translate-y-[-50%]"
+            cor="azul"
+            nome="css"
+            svg={TecnologiasSvg.css}
+        />
+        <TecnologiaLogo
+            viewBox="0 0 128 128"
+            position="left-[calc(1%_+_4rem)] translate-x-[-50%] top-[calc(50%_-_8.5rem)]"
+            cor="azul"
+            nome="tailwind"
+            isSecundary
+            svg={TecnologiasSvg.tailwind}
+        />
+        <TecnologiaLogo
+            position="left-[1%] bottom-[1%]"
+            cor="amarelo"
+            nome="javascript"
+            svg={TecnologiasSvg.javascript}
+        />
+        <TecnologiaLogo
+            position="right-[1%] top-[1%]"
+            cor="vermelho"
+            nome="java"
+            svg={TecnologiasSvg.java}
+        />
+        <TecnologiaLogo
+            viewBox="0 0 128 128"
+            position="stroke-[3] left-[50%] top-[1%] translate-x-[-50%]"
+            cor="azul"
+            nome="postgres"
+            svg={TecnologiasSvg.postgres}
+        />
+        <TecnologiaLogo
+            viewBox="0 0 128 128"
+            position="stroke-[3] left-[50%] bottom-[1%] translate-x-[-50%]"
+            cor="azul"
+            nome="dart"
+            svg={TecnologiasSvg.dart}
+        />
+        <TecnologiaLogo
+            viewBox="0 0 128 128"
+            position="left-[56%] bottom-[1%] translate-y-[-50%]"
+            cor="azul"
+            nome="flutter"
+            isSecundary
+            svg={TecnologiasSvg.flutter}
+        />
+        <TecnologiaLogo
+            viewBox="0 0 128 128"
+            position="left-[9.5rem] bottom-[1%] translate-y-[-50%]"
+            cor="azul"
+            nome="typescript"
+            isSecundary
+            svg={TecnologiasSvg.typescript}
+        />
+        <TecnologiaLogo
+            viewBox="0 0 140 140"
+            position="right-[9.5rem] top-[1%] translate-y-[50%]"
+            cor="verde"
+            nome="typescript"
+            isSecundary
+            svg={TecnologiasSvg.spring}
+        />
+        <TecnologiaLogo
+            viewBox="0 0 512 512"
+            position="left-[1%] bottom-[9rem] translate-x-[50%]"
+            cor="azul"
+            nome="react"
+            isSecundary
+            svg={TecnologiasSvg.react}
+        />
+        <TecnologiaLogo
+            position="right-[1%] bottom-[1%]"
+            cor="amarelo"
+            svg={TecnologiasSvg.python}
+            nome="python"
+        />
+        <!-- <svg class="svg_teste" style="--cor_svg: orange;" ><path d={TecnologiasSvg.javascript}/></svg> -->
+        <!-- <svg class="svg_teste" style="--cor_svg: blue;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d={TecnologiasSvg.css}/></svg>
+            <!-- <svg class="svg_teste" style="--cor_svg: yellow;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d=""/></svg> -->
+        <!-- <svg class="svg_teste" style="--cor_svg: blue;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M320 104.5c171.4 0 303.2 72.2 303.2 151.5S491.3 407.5 320 407.5c-171.4 0-303.2-72.2-303.2-151.5S148.7 104.5 320 104.5m0-16.8C143.3 87.7 0 163 0 256s143.3 168.3 320 168.3S640 349 640 256 496.7 87.7 320 87.7zM218.2 242.5c-7.9 40.5-35.8 36.3-70.1 36.3l13.7-70.6c38 0 63.8-4.1 56.4 34.3zM97.4 350.3h36.7l8.7-44.8c41.1 0 66.6 3 90.2-19.1 26.1-24 32.9-66.7 14.3-88.1-9.7-11.2-25.3-16.7-46.5-16.7h-70.7L97.4 350.3zm185.7-213.6h36.5l-8.7 44.8c31.5 0 60.7-2.3 74.8 10.7 14.8 13.6 7.7 31-8.3 113.1h-37c15.4-79.4 18.3-86 12.7-92-5.4-5.8-17.7-4.6-47.4-4.6l-18.8 96.6h-36.5l32.7-168.6zM505 242.5c-8 41.1-36.7 36.3-70.1 36.3l13.7-70.6c38.2 0 63.8-4.1 56.4 34.3zM384.2 350.3H421l8.7-44.8c43.2 0 67.1 2.5 90.2-19.1 26.1-24 32.9-66.7 14.3-88.1-9.7-11.2-25.3-16.7-46.5-16.7H417l-32.8 168.7z"/></svg> -->
+        <!-- <svg class="svg_teste" style="--cor_svg: red;"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d=""/></svg> -->
+        <!-- <svg class="svg_teste" style="--cor_svg: blue;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <svg class="" xmlns="http://www.w3.org/2000/svg" fill="transparent" width="512" height="512" viewBox="0 0 512 512"><title>ionicons-v5_logos</title><path style="filter: drop-shadow(0 0 15px blue);" stroke="blue" stroke-width="10px" d=""/>
+            <path style="filter: drop-shadow(0 0 15px yellow);" stroke="yellow" stroke-width="10px" d=""/></svg>  -->
+    </div>
+    <div
+        class="absolute flex w-[80%] items-center justify-between left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]"
+    >
+        <div class="flex-column-centro" id="index_header__text">
+            <h2 class="text-4xl font-bold text-purple-500">
+                João Lucas Silva Lopes
+            </h2>
+            <p class="text-3xl text-gray-400">Desenvolvedor</p>
+            <div id="index_header__links" class="flex">
+                <Contanto
+                    temAnimacao
+                    nome="github"
+                    svg={ContantoSvg.github}
+                    link="https://github.com/Joao-Lucas-Si"
+                />
+                <Contanto
+                    temAnimacao
+                    nome="linkedin"
+                    svg={ContantoSvg.linkedin}
+                    link="https://www.linkedin.com/in/jo%C3%A3o-lucas-silva-lopes-b629a0286/"
+                />
+                <Contanto
+                    temAnimacao
+                    nome="email"
+                    svg={ContantoSvg.email}
+                    link="mailto:joao6lucas2168@gmail.com"
+                />
+            </div>
+        </div>
+        <div id="index_header__imagem" class="lg:w-[50%] w-[100%]">
+            <Image class="" src={ProgramadorImagem} alt="" id="dev_imagem" />
+        </div>
+    </div>
+</header>

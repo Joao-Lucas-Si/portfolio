@@ -1,0 +1,34 @@
+---
+import Image from "astro/components/Image.astro";
+import ProjetoCard from "../../components/ProjetoCard.astro";
+import Projetos from "../../constants/Projetos";
+import NekoArkCorrendo from "../../assets/images/neco-arc-correndo.gif"
+
+---
+
+<section id="projetos" >
+    <!-- <div class="overflow-hidden relative h-[35vh]">
+        <Image alt="" src={NekoArkCorrendo} class="neco-arc absolute w-[15rem] h-[100%]" />
+    </div> -->
+    <h2 class="text-center text-purple-500 font-bold text-3xl">Projetos</h2>
+    <div class="grid md:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-2  p-2">
+
+    {Projetos.map(projeto => <ProjetoCard {...projeto} />)}
+    </div>
+</section>
+
+<style>
+
+    @keyframes correndo {
+        from {
+            left: -20vw
+        }
+
+        to {
+            left: 120vw
+        }
+    }
+    .neco-arc {
+        animation: 5s correndo infinite linear;
+    }
+</style>
