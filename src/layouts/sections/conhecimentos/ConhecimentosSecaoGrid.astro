@@ -23,8 +23,8 @@ import conhecimentos from "../../../constants/conhecimentos";
                         <div class="flex">
                             {conhecimento.subs != null && (
                                 <div class="flex flex-col gap-1 w-12">
-                                    {conhecimento.subs
-                                        .toSorted((e1, e2) => e2.nivel - e1.nivel)
+                                    {[...conhecimento.subs]
+                                        .sort((e1, e2) => e2.nivel - e1.nivel)
                                         .map((sub) => (
                                             <div
                                                 data-sub={sub.nome}
