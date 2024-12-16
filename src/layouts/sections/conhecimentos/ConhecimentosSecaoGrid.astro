@@ -1,90 +1,94 @@
 ---
 import conhecimentos from "../../../constants/conhecimentos";
+console.log(conhecimentos)
 ---
 
-<section id="conhecimentos">
-    <h2 class="text-center font-bold text-purple-500 text-3xl">
-        Conhecimentos
-    </h2>
-    <div
-        class="w-[90%] flex lg:flex-row flex-col-reverse gap-12 min-h-[50vh] justify-between items-center m-auto"
-    >
-        <div class="lg:w-[60%] w-[100%] min-h-[60vh]">
-            <div class="info atual">
-                <div class="flex justify-center items-center">
-                    <h3 class="text-gray-300 text-center text-3xl">Selecione uma tecnologia</h3>
-                </div>
+<div
+    class="w-[90%] flex lg:flex-row flex-col-reverse gap-12 min-h-[50vh] justify-between items-center m-auto"
+>
+    <div class="lg:w-[60%] w-[100%] min-h-[60vh]">
+        <div class="info atual">
+            <div class="flex justify-center items-center">
+                <h3 class="text-gray-300 text-center text-3xl">
+                    Selecione uma tecnologia
+                </h3>
             </div>
-            {
-                conhecimentos.map((conhecimento) => (
-                    <div
-                        data-conhecimento={conhecimento.nome}
-                        class="info hidden h-[100%] flex-col gap-1"
-                    >
-                        <div>
-                           
-                            <div class="flex">
-
-                                {conhecimento.subs != null && (
-                                    <div class="flex flex-col gap-1 w-12">
-                                        {conhecimento.subs
-                                            .sort(
-                                                (e1, e2) => e2.nivel - e1.nivel,
-                                            )
-                                            .map((sub) => (
-                                                <div 
-                                                    data-sub={sub.nome}
-                                                    class="sub-conhecimento bg-gray-700 w-[100%] rounded flex justify-center items-center h-12"
-                                                >
-                                                    <img
-                                                        class="w-[80%] h-[80%]"
-                                                        src={sub.imagem}
-                                                    />
-                                                </div>
-                                            ))}
-                                    </div>
-                                )}
-                                <div class="w-[calc(100%_-_2rem)] px-4">
-                                    <h3 class="text-center  font-bold text-2xl text-purple-500">
-                                        {conhecimento.nome}
-                                    </h3>
-                                    <div class="sub-info padrao atual"> 
-                                        {conhecimento.conteudo
-                                            .split("\n")
-                                            .map((conteudo) => (
-                                                <p class="text-white">{conteudo}</p>
-                                            ))}
-                                    </div>
-                                    {conhecimento.subs?.map(sub => <div data-sub={sub.nome} class="sub-info hidden">
-                                        <h3 class="text-xl text-purple-400 text-center">{sub.nome}</h3>
-                                        {sub.conteudo.split("\n").map(frase => <p class="text-white">{frase}</p>)}
-                                    </div>)}
+        </div>
+        {
+            conhecimentos.map((conhecimento) => (
+                <div
+                    data-conhecimento={conhecimento.nome}
+                    class="info hidden h-[100%] flex-col gap-1"
+                >
+                    <div>
+                        <div class="flex">
+                            {conhecimento.subs != null && (
+                                <div class="flex flex-col gap-1 w-12">
+                                    {conhecimento.subs
+                                        .toSorted((e1, e2) => e2.nivel - e1.nivel)
+                                        .map((sub) => (
+                                            <div
+                                                data-sub={sub.nome}
+                                                class="sub-conhecimento bg-gray-700 w-[100%] rounded flex justify-center items-center h-12"
+                                            >
+                                                <img
+                                                    class="w-[80%] h-[80%]"
+                                                    src={sub.imagem}
+                                                />
+                                            </div>
+                                        ))}
                                 </div>
+                            )}
+                            <div class="w-[calc(100%_-_2rem)] px-4">
+                                <h3 class="text-center  font-bold text-2xl text-purple-500">
+                                    {conhecimento.nome}
+                                </h3>
+                                <div class="sub-info padrao atual">
+                                    {conhecimento.conteudo
+                                        .split("\n")
+                                        .map((conteudo) => (
+                                            <p class="text-white">{conteudo}</p>
+                                        ))}
+                                </div>
+                                {conhecimento.subs?.map((sub) => (
+                                    <div
+                                        data-sub={sub.nome}
+                                        class="sub-info hidden"
+                                    >
+                                        <h3 class="text-xl text-purple-400 text-center">
+                                            {sub.nome}
+                                        </h3>
+                                        {sub.conteudo
+                                            .split("\n")
+                                            .map((frase) => (
+                                                <p class="text-white">
+                                                    {frase}
+                                                </p>
+                                            ))}
+                                    </div>
+                                ))}
                             </div>
                         </div>
                     </div>
-                ))
-            }
-        </div>
-        <div
-            class={`grid md:w-[40%] w-[100%] gap-3 md:grid-rows-[repeat(7,calc(60vh_/_7))] grid-rows-[repeat(7,calc(50vh_/_7))] grid-cols-5 min-h-[50vh] md:min-h-[60vh] h-[100%]`}
-        >
-            {
-                conhecimentos.map((conhecimento) => (
-                    <div
-                        data-conhecimento={conhecimento.nome}
-                        class={`bg-gray-700 flex justify-center items-center rounded-md conhecimento  ${conhecimento.nivel == 3 ? "col-span-3 row-span-3" : conhecimento.nivel == 2 ? "col-span-2 row-span-2" : "col-span-1 row-span-1"} g`}
-                    >
-                        <img
-                            class="w-[90%] h-[90%]"
-                            src={conhecimento.imagem}
-                        />
-                    </div>
-                ))
-            }
-        </div>
+                </div>
+            ))
+        }
     </div>
-</section>
+    <div
+        class={`grid md:w-[40%] w-[100%] gap-3 md:grid-rows-[repeat(7,calc(60vh_/_7))] grid-rows-[repeat(7,calc(50vh_/_7))] grid-cols-5 min-h-[50vh] md:min-h-[60vh] h-[100%]`}
+    >
+        {
+            conhecimentos.map((conhecimento) => (
+                <div
+                    data-conhecimento={conhecimento.nome}
+                    class={`bg-gray-700 flex justify-center items-center rounded-md conhecimento  ${conhecimento.nivel == 3 ? "col-span-3 row-span-3" : conhecimento.nivel == 2 ? "col-span-2 row-span-2" : "col-span-1 row-span-1"} g`}
+                >
+                    <img class="w-[90%] h-[90%]" src={conhecimento.imagem} />
+                </div>
+            ))
+        }
+    </div>
+</div>
 
 <script>
     import type { Conhecimento } from "../../../types/Conhecimento";
@@ -98,44 +102,39 @@ import conhecimentos from "../../../constants/conhecimentos";
         });
     });
 
-   
+    const infos = [...document.querySelectorAll<HTMLDivElement>(".info")];
 
-    const infos = [...document.querySelectorAll<HTMLDivElement>(".info")]
-
-    infos.forEach(info => {
+    infos.forEach((info) => {
         const subConhecimentosElementos = [
-        ...info.querySelectorAll<HTMLDivElement>(".sub-conhecimento"),
+            ...info.querySelectorAll<HTMLDivElement>(".sub-conhecimento"),
         ];
 
         subConhecimentosElementos.forEach((elemento) => {
-        elemento.addEventListener("click", () => {
-            const infoAtual = info.querySelector(".sub-info.atual");
-            if (elemento.classList.contains("atual")) {
-                const infoPadrao = info.querySelector(
-                    ".sub-info.padrao",
-                );
-                infoPadrao?.classList.add("atual");
-                infoPadrao?.classList.remove("hidden");
-                elemento.classList.remove(...ativoClass);
-            } else {
-                const subInfo = info.querySelector(
-                    `.sub-info[data-sub="${elemento.dataset.sub}"]`,
-                );
-                const subAtual = info.querySelector(
-                    ".sub-conhecimento.atual",
-                );
+            elemento.addEventListener("click", () => {
+                const infoAtual = info.querySelector(".sub-info.atual");
+                if (elemento.classList.contains("atual")) {
+                    const infoPadrao = info.querySelector(".sub-info.padrao");
+                    infoPadrao?.classList.add("atual");
+                    infoPadrao?.classList.remove("hidden");
+                    elemento.classList.remove(...ativoClass);
+                } else {
+                    const subInfo = info.querySelector(
+                        `.sub-info[data-sub="${elemento.dataset.sub}"]`,
+                    );
+                    const subAtual = info.querySelector(
+                        ".sub-conhecimento.atual",
+                    );
 
-                subAtual?.classList.remove(...ativoClass);
-                elemento.classList.add(...ativoClass);
-                subInfo?.classList.remove("hidden")
-                subInfo?.classList.add("atual")
-            }
-            infoAtual?.classList.remove("atual");
-            infoAtual?.classList.add("hidden");
+                    subAtual?.classList.remove(...ativoClass);
+                    elemento.classList.add(...ativoClass);
+                    subInfo?.classList.remove("hidden");
+                    subInfo?.classList.add("atual");
+                }
+                infoAtual?.classList.remove("atual");
+                infoAtual?.classList.add("hidden");
+            });
         });
     });
-
-    })
 
     const ativoClass = [
         "atual",
@@ -143,7 +142,6 @@ import conhecimentos from "../../../constants/conhecimentos";
         "drop-shadow-[0_0_100px_purple]",
     ];
 
-    
     function mostrarConhecimento(conhecimento: HTMLElement) {
         const conhecimentoAtual = document.querySelector(".conhecimento.atual");
 

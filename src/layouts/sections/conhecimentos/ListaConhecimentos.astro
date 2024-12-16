@@ -1,0 +1,52 @@
+---
+import conhecimentos from "../../../constants/conhecimentos";
+---
+
+<ul class="px-4 flex flex-col gap-4">
+    {
+        [...conhecimentos]
+            .toSorted((e1, e2) => e2.nivel - e1.nivel)
+            .map((conhecimento) => (
+                <li class="flex flex-col gap-4">
+                    <div class="flex gap-2 items-center justify-center">
+                        <div class="w-42 h-42" >
+                            <h3 class="text-2xl text-center text-bold text-purple-500">
+                                {conhecimento.nome}
+                            </h3>
+                            <img class="h-[100%] w-[100%]" src={conhecimento.imagem} />
+                        </div>
+                        <div>
+                            {conhecimento.conteudo
+                                .split("\n")
+                                .map((conteudo) => (
+                                    <p class="text-white">{conteudo}</p>
+                                ))}
+                        </div>
+                    </div>
+                    {conhecimento.subs && (
+                        <ul class="ml-10 pl-6 flex flex-col gap-4 border-l-solid border-l-purple-500 border-l-4">
+                            {conhecimento.subs
+                                .toSorted((e1, e2) => e2.nivel - e1.nivel)
+                                .map((sub) => (
+                                    <li class="flex gap-2 items-center">
+                                        <div class="w-32 h-32 items-center flex flex-col">
+                                            <h3 class="text-xl text-center text-purple-400">
+                                                {sub.nome}
+                                            </h3>
+                                            <img class="w-[100%]" src={sub.imagem} />
+                                        </div>
+                                        <div>
+                                        {sub.conteudo
+                                            .split("\n")
+                                            .map((conteudo) => (
+                                                <p class="text-white">{conteudo}</p>
+                                            ))}
+                                        </div>
+                                    </li>
+                                ))}
+                        </ul>
+                    )}
+                </li>
+            ))
+    }
+</ul>

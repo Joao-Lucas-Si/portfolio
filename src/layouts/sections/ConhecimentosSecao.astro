@@ -1,0 +1,23 @@
+---
+import ConhecimentosSecaoGrid from "./conhecimentos/ConhecimentosSecaoGrid.astro";
+import ListaConhecimentos from "./conhecimentos/ListaConhecimentos.astro";
+
+
+---
+<section id="conhecimentos">
+    <h2 class="text-center font-bold text-purple-500 text-3xl">
+        Conhecimentos
+    </h2>
+<div class="com-script hidden">
+    <ConhecimentosSecaoGrid />
+</div>
+<noscript>
+    <ListaConhecimentos />
+</noscript>
+</section>
+
+<script>
+    const comScript = document.querySelector(".com-script")
+
+    comScript?.classList.remove("hidden")
+</script>
